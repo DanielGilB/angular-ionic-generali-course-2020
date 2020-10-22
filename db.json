@@ -2,11 +2,11 @@
   "publishers": [
     {
       "id": 1,
-      "name": "Jose Antonio Postigo",
+      "name": "Jose",
       "birthDate": "1985-05-10",
       "sex": "male",
       "phone": 232421587,
-      "email": "japostigo@atsistemas.com"
+      "email": "japo@atsistemas.com"
     },
     {
       "id": 2,
@@ -53,22 +53,12 @@
     {
       "id": 1,
       "title": "Head First Java",
-      "language": "Java",
-      "edition": "third",
-      "publisher": {
-        "id": 2,
-        "name": "O'Reilly"
-      }
+      "language": "Java"
     },
     {
       "id": 2,
       "title": "Head First Design Pattern",
-      "language": "Java",
-      "edition": "second",
-      "publisher": {
-        "id": 2,
-        "name": "O'Reilly"
-      }
+      "language": "Java"
     },
     {
       "id": 3,
@@ -138,24 +128,14 @@
       }
     },
     {
-      "id": 10,
-      "title": "C++ Primer",
-      "language": "C++",
-      "edition": "third",
-      "publisher": {
-        "id": 4,
-        "name": "Amazon"
-      }
+      "title": "asdadsdsa",
+      "language": "Javascript",
+      "id": 10
     },
     {
-      "id": 11,
-      "title": "Thinking in C++",
-      "language": "C++",
-      "edition": "third",
-      "publisher": {
-        "id": 4,
-        "name": "Amazon"
-      }
+      "title": "asdadsdsa",
+      "language": "Python",
+      "id": 11
     }
   ]
 }

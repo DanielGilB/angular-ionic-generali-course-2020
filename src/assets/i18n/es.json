@@ -6,6 +6,7 @@
   },
   "BOOKS": {
     "TITLE": "Libros",
+    "NEW_BOOK": "Nuevo libro",
     "FIELDS": {
       "TITLE": "Título",
       "LANGUAGE": "Lenguaje",
@@ -13,6 +14,7 @@
       "PUBLISHER": "Autor"
     }
   },
+  "PUBLISHERS": {},
   "BUTTONS": {
     "ACCEPT_DEFAULT": "Aceptar",
     "CANCEL_DEFAULT": "Cancelar",

@@ -1,1 +1,28 @@
-<p>book-details works!</p>
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ isNew ? ('BOOKS.NEW_BOOK' | translate) : (book$ | async)?.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ng-container *ngIf="loading$ | async; else bookData">
+    <ion-spinner color="primary"></ion-spinner>
+  </ng-container>
+
+  <ng-template #bookData>
+    <ng-container *ngIf="isNew || (book$ | async)">
+      <app-book-form
+        [form]="form"
+        [isNew]="isNew"
+        (submitForm)="isNew ? createBook($event) : updateBook($event)"
+      ></app-book-form>
+      <p *ngIf="(book$ | async)?.publisher">
+        {{ 'BOOKS.FIELDS.PUBLISHER' | translate }}: {{ (book$ | async)?.publisher.name }}
+      </p>
+      <p *ngIf="(book$ | async)?.edition">{{ 'BOOKS.FIELDS.EDITION' | translate }}: {{ (book$ | async)?.edition }}</p>
+    </ng-container>
+  </ng-template>
+</ion-content>

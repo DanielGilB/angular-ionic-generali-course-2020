@@ -1,36 +1,43 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
-import { BooksService } from '../../services/books.service';
-import { Book } from '../../models/book.model';
+import { BooksStorageService } from '../../services/books-storage.service';
+import { FormControl, FormBuilder } from '@angular/forms';
+import { map, startWith } from 'rxjs/operators';
+import { combineLatest } from 'rxjs';
 
 @Component({
   selector: 'app-books-list',
   templateUrl: './books-list.component.html',
-  styleUrls: ['./books-list.component.scss']
+  styleUrls: ['./books-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BooksListComponent implements OnInit {
-  books: Book[] = [];
+  books$ = this.booksStorage.books$;
+  form = this.formBuilder.group({
+    search: new FormControl('')
+  });
+  search$ = this.form.get('search').valueChanges.pipe(startWith(''));
+  booksFiltered$ = combineLatest([this.booksStorage.books$, this.search$]).pipe(
+    map(([books, search]) => books.filter((book) => book.title?.toLowerCase().includes(search?.toLowerCase())))
+  );
+  loading$ = this.booksStorage.loading$;
 
-  constructor(private booksSrv: BooksService, private router: Router, private loadingController: LoadingController) {}
+  constructor(private booksStorage: BooksStorageService, private router: Router, private formBuilder: FormBuilder) {}
 
-  ngOnInit(): void {
-    this.booksSrv.getBooks().subscribe((books) => (this.books = books));
+  ngOnInit() {
+    this.getBooks();
   }
 
   navToBookDetail(id: number) {
     this.router.navigate(['/books', id]);
   }
 
-  async removeBook(book: Book) {
-    const loading = await this.loadingController.create({
-      message: 'Loading...'
-    });
-    await loading.present();
+  removeBook({ id }) {
+    this.booksStorage.removeBook(id);
+  }
 
-    this.booksSrv.deleteBook(book.id).subscribe(() => {
-      this.books = this.books.filter(({ id }) => book.id !== id);
-      loading.dismiss();
-    });
+  getBooks(event?: any) {
+    this.booksStorage.loadBooks();
+    event?.target.complete();
   }
 }

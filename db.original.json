@@ -2,11 +2,11 @@
   "publishers": [
     {
       "id": 1,
-      "name": "Jose Antonio Postigo",
+      "name": "Jose",
       "birthDate": "1985-05-10",
       "sex": "male",
       "phone": 232421587,
-      "email": "japostigo@atsistemas.com"
+      "email": "japo@atsistemas.com"
     },
     {
       "id": 2,

@@ -1,0 +1,26 @@
+<form [formGroup]="form" (ngSubmit)="sendForm(form.value)">
+  <div>
+    <label for="title"> {{ 'BOOKS.FIELDS.TITLE' | translate }} </label>
+    <input class="text" id="title" type="text" formControlName="title" />
+
+    <div *ngIf="title.invalid && (title.dirty || title.touched)">
+      <div *ngIf="title.errors.required">Title is required.</div>
+      <div *ngIf="title.errors.minlength">Title must be at least 4 characters long.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="language"> {{ 'BOOKS.FIELDS.LANGUAGE' | translate }} </label>
+    <select class="text" formControlName="language">
+      <option [ngValue]="languageTypes.JAVA">{{ languageTypes.JAVA.valueOf() }}</option>
+      <option [ngValue]="languageTypes.JAVASCRIPT">{{ languageTypes.JAVASCRIPT.valueOf() }}</option>
+      <option [ngValue]="languageTypes.PYTHON">{{ languageTypes.PYTHON.valueOf() }}</option>
+      <option [ngValue]="languageTypes.OTHER">{{ languageTypes.OTHER.valueOf() }}</option>
+    </select>
+  </div>
+
+  <!-- Modificado -->
+  <ion-button type="submit" color="primary" [disabled]="!form.valid">{{
+    (isNew ? 'CRUD.CREATE' : 'CRUD.MODIFY') | translate
+  }}</ion-button>
+</form>

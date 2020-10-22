@@ -1,21 +1,36 @@
 <ion-header translucent>
   <ion-toolbar>
     <ion-title>{{ 'BOOKS.TITLE' | translate }}</ion-title>
+    <ion-buttons slot="primary" [routerLink]="['/books', 'new']">
+      <ion-button fill="solid" color="secondary">
+        {{ 'CRUD.CREATE' | translate }}
+        <ion-icon slot="end" name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen>
-  <ng-container *ngIf="!!books?.length; else loadingBooks">
+  <ion-refresher slot="fixed" (ionRefresh)="getBooks($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ng-container *ngIf="loading$ | async; else booksData">
+    <ion-spinner color="primary"></ion-spinner>
+  </ng-container>
+  <ng-template #booksData>
+    <form [formGroup]="form">
+      <div>
+        <input class="text" id="search" type="text" formControlName="search" />
+      </div>
+    </form>
     <ion-list>
       <app-book-row
-        *ngFor="let book of books; trackBy: book?.id"
+        *ngFor="let book of booksFiltered$ | async; trackBy: book?.id"
         [book]="book"
         (detail)="navToBookDetail($event)"
         (remove)="removeBook(book)"
       ></app-book-row>
     </ion-list>
-  </ng-container>
-  <ng-template #loadingBooks>
-    <ion-spinner color="primary"></ion-spinner>
   </ng-template>
 </ion-content>
