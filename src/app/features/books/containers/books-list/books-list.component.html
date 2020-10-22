@@ -1,0 +1,21 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>{{ 'BOOKS.TITLE' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ng-container *ngIf="!!books?.length; else loadingBooks">
+    <ion-list>
+      <app-book-row
+        *ngFor="let book of books; trackBy: book?.id"
+        [book]="book"
+        (detail)="navToBookDetail($event)"
+        (remove)="removeBook(book)"
+      ></app-book-row>
+    </ion-list>
+  </ng-container>
+  <ng-template #loadingBooks>
+    <ion-spinner color="primary"></ion-spinner>
+  </ng-template>
+</ion-content>

@@ -1,0 +1,161 @@
+{
+  "publishers": [
+    {
+      "id": 1,
+      "name": "Jose Antonio Postigo",
+      "birthDate": "1985-05-10",
+      "sex": "male",
+      "phone": 232421587,
+      "email": "japostigo@atsistemas.com"
+    },
+    {
+      "id": 2,
+      "name": "O'Reilly",
+      "birthDate": "1988-01-01",
+      "sex": null,
+      "phone": 666666666,
+      "email": "oreilly@atsistemas.com"
+    },
+    {
+      "id": 3,
+      "name": "Sun Microsystems",
+      "birthDate": "1988-01-01",
+      "sex": null,
+      "phone": 666666666,
+      "email": "SunMicrosystems@atsistemas.com"
+    },
+    {
+      "id": 4,
+      "name": "Amazon",
+      "birthDate": "1988-01-01",
+      "sex": null,
+      "phone": 666666666,
+      "email": "amazon@atsistemas.com"
+    },
+    {
+      "id": 5,
+      "name": "Marijn Haverbecke",
+      "birthDate": "1988-01-01",
+      "sex": "male",
+      "phone": 666126666,
+      "email": "marijn@atsistemas.com"
+    },
+    {
+      "id": 6,
+      "name": "Dave Thau",
+      "birthDate": "1988-01-01",
+      "sex": "female",
+      "phone": 666126666,
+      "email": "davethau@atsistemas.com"
+    }
+  ],
+  "books": [
+    {
+      "id": 1,
+      "title": "Head First Java",
+      "language": "Java",
+      "edition": "third",
+      "publisher": {
+        "id": 2,
+        "name": "O'Reilly"
+      }
+    },
+    {
+      "id": 2,
+      "title": "Head First Design Pattern",
+      "language": "Java",
+      "edition": "second",
+      "publisher": {
+        "id": 2,
+        "name": "O'Reilly"
+      }
+    },
+    {
+      "id": 3,
+      "title": "Effective Java",
+      "language": "Java",
+      "edition": "third",
+      "publisher": {
+        "id": 3,
+        "name": "Sun Microsystems"
+      }
+    },
+    {
+      "id": 4,
+      "title": "Concurrency Practice in Java",
+      "language": "Java",
+      "edition": "first",
+      "publisher": {
+        "id": 3,
+        "name": "Sun Microsystems"
+      }
+    },
+    {
+      "id": 5,
+      "title": "Java Generics and Collections",
+      "language": "Java",
+      "edition": "third",
+      "publisher": {
+        "id": 2,
+        "name": "O'Reilly"
+      }
+    },
+    {
+      "id": 6,
+      "title": "Eloquent JavaScript",
+      "language": "Javascript",
+      "edition": "third",
+      "publisher": {
+        "id": 5,
+        "name": "Marijn Haverbecke"
+      }
+    },
+    {
+      "id": 7,
+      "title": "The Book of JavaScript",
+      "language": "Javascript",
+      "edition": "second",
+      "publisher": "Dave Thau"
+    },
+    {
+      "id": 8,
+      "title": "JavaScript, The Definitive Guide",
+      "language": "Javascript",
+      "edition": "third",
+      "publisher": {
+        "id": 2,
+        "name": "O'Reilly"
+      }
+    },
+    {
+      "id": 9,
+      "title": "Effective JavaScript",
+      "language": "JavaScript",
+      "edition": "third",
+      "publisher": {
+        "id": 2,
+        "name": "O'Reilly"
+      }
+    },
+    {
+      "id": 10,
+      "title": "C++ Primer",
+      "language": "C++",
+      "edition": "third",
+      "publisher": {
+        "id": 4,
+        "name": "Amazon"
+      }
+    },
+    {
+      "id": 11,
+      "title": "Thinking in C++",
+      "language": "C++",
+      "edition": "third",
+      "publisher": {
+        "id": 4,
+        "name": "Amazon"
+      }
+    }
+  ]
+}

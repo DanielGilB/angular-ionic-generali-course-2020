@@ -1,0 +1,20 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>{{ 'HOME.TITLE' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-button color="primary" size="large" [routerLink]="['/books']">
+        {{ 'HOME.NAV_BOOKS' | translate }}
+      </ion-button>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+      <ion-button color="primary" size="large" [routerLink]="['/publishers']">
+        {{ 'HOME.NAV_PUBLISHERS' | translate }}
+      </ion-button>
+    </ion-row>
+  </ion-grid>
+</ion-content>

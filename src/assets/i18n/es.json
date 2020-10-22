@@ -1,0 +1,69 @@
+{
+  "HOME": {
+    "TITLE": "Inicio",
+    "NAV_BOOKS": "Ver mis libros",
+    "NAV_PUBLISHERS": "Ver autores"
+  },
+  "BOOKS": {
+    "TITLE": "Libros",
+    "FIELDS": {
+      "TITLE": "Título",
+      "LANGUAGE": "Lenguaje",
+      "EDITION": "Edición",
+      "PUBLISHER": "Autor"
+    }
+  },
+  "BUTTONS": {
+    "ACCEPT_DEFAULT": "Aceptar",
+    "CANCEL_DEFAULT": "Cancelar",
+    "CLOSE_DEFAULT": "Cerrar",
+    "SEND": "Enviar",
+    "NEXT": "Siguiente",
+    "BACK": "Volver",
+    "CONFIRM": "Confirmar",
+    "CONTINUE": "Continuar"
+  },
+  "CRUD": {
+    "CREATE": "Nuevo",
+    "DELETE": "Borrar",
+    "DELETE2": "Eliminar",
+    "EDIT": "Editar",
+    "COPY": "Copiar",
+    "MOVE": "Mover",
+    "MODIFY": "Modificar",
+    "SEE": "Consultar",
+    "PDF": "Visualizar",
+    "STOP": "Detener",
+    "SEND": "Enviar"
+  },
+  "FORMS": {
+    "NOT_FOUND": "No se encontraron coincidencias",
+    "CLEAR_FILTER": "Limpiar Filtro"
+  },
+  "VALIDATIONS": {
+    "MIN_LENGTH_NOT_TEXT": "Este campo debe tener al menos {{number}} caracteres númericos.",
+    "MIN_LENGTH": "Este campo debe tener al menos {{number}} caracteres",
+    "MAX_LENGTH": "Este campo debe ser menor de {{number}} caracteres",
+    "MIN": "Este campo debe ser mayor que {{number}}",
+    "MAX": "Este campo debe ser menor que {{number}}",
+    "MIN_OR_EQUALS": "Este campo debe ser mayor o igual que {{number}}",
+    "MAX_OR_EQUALS": "Este campo debe ser menor o igual que {{number}}",
+    "RANGE": "Este campo debe ser mayor o igual que {{min}} y menor o igual que {{max}}",
+    "MIN_DATE": "La fecha debe ser mayor que la {{otherDate}}",
+    "MAX_DATE": "La fecha debe ser menor que la {{otherDate}}",
+    "REQUIRED": "Este campo es obligatorio",
+    "EMAIL": "La dirección de correo electrónico no es válida",
+    "PATTERN": "Este campo debe de cumplir el formato especificado",
+    "MUST_BE_NUMBER": "Este campo debe ser un valor numérico",
+    "MUST_BE_INTEGER": "Este campo debe ser un valor entero",
+    "FILE_INCORRECT": "Fichero con formato incorrecto",
+    "PHONE_NOT_VALID": "El teléfono debe tener el siguiente formato {{validFormatExample}}",
+    "FAX_NOT_VALID": "El fax debe tener el siguiente formato {{validFormatExample}}",
+    "PASSWORD_NOT_MATCH": "Las contraseñas no coinciden"
+  },
+  "ERRORS": {
+    "OK": "Operación finalizada satisfactoriamente",
+    "RETRY": "Si este problema persiste, vuelva a intentarlo más tarde o ponte en contacto con nosotros",
+    "BACKEND": "Se ha producido un problema conectando con nuestros servidores"
+  }
+}
