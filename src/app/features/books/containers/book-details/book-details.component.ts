@@ -4,7 +4,7 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Book } from '../../models/book.model';
 import { BooksStorageService } from '../../services/books-storage.service';
-import { map, tap } from 'rxjs/operators';
+import { map, tap, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-book-details',
@@ -32,7 +32,7 @@ export class BookDetailsComponent implements OnInit {
     const id: string | number = this.route.snapshot.params.id;
     this.isNew = id === 'new';
     this.book$ = this.booksStorage.books$.pipe(
-      map((books) => books?.find((book) => book.id === +id)),
+      map((books) => books?.find((book) => book.id === +id) ?? {}),
       tap((book) => (book ? this.form.patchValue(book) : ''))
     );
 

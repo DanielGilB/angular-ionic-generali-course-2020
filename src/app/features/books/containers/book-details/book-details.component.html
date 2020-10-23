@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ isNew ? ('BOOKS.NEW_BOOK' | translate) : (book$ | async)?.title }}</ion-title>
+    <ion-title>{{ (book$ | async)?.title || ('BOOKS.NEW_BOOK' | translate) }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,16 +13,14 @@
   </ng-container>
 
   <ng-template #bookData>
-    <ng-container *ngIf="isNew || (book$ | async)">
+    <ng-container *ngIf="book$ | async as book">
       <app-book-form
         [form]="form"
         [isNew]="isNew"
         (submitForm)="isNew ? createBook($event) : updateBook($event)"
       ></app-book-form>
-      <p *ngIf="(book$ | async)?.publisher">
-        {{ 'BOOKS.FIELDS.PUBLISHER' | translate }}: {{ (book$ | async)?.publisher.name }}
-      </p>
-      <p *ngIf="(book$ | async)?.edition">{{ 'BOOKS.FIELDS.EDITION' | translate }}: {{ (book$ | async)?.edition }}</p>
+      <p *ngIf="book?.publisher">{{ 'BOOKS.FIELDS.PUBLISHER' | translate }}: {{ book?.publisher.name }}</p>
+      <p *ngIf="book?.edition">{{ 'BOOKS.FIELDS.EDITION' | translate }}: {{ book?.edition }}</p>
     </ng-container>
   </ng-template>
 </ion-content>

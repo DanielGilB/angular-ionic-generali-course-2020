@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, shareReplay } from 'rxjs/operators';
 import { BooksService } from './books.service';
 import { Book } from '../models/book.model';
 
@@ -20,13 +20,18 @@ export class BooksStorageService {
     loading: false,
     error: null
   });
-  state$: Observable<State> = this._storage.asObservable();
-  books$: Observable<Book[]> = this.state$.pipe(map(({ books }) => books));
+  state$: Observable<State> = this._storage.asObservable().pipe(
+    /* shareReplay does two things, caches the last emmited value, so components that subscribe after a value been
+    emmited can still display the value, and shares the same observable between all observers,
+    instead of creating new observables on each subscription */
+    shareReplay(1)
+  );
+  books$: Observable<Book[]> = this.state$.pipe(map(({ books }) => books?.sort((a, b) => a.id - b.id)));
   loading$: Observable<boolean> = this.state$.pipe(map(({ loading }) => loading));
 
   constructor(private booksSrv: BooksService) {}
 
-  get data() {
+  private get data() {
     return this._storage.getValue();
   }
 
@@ -65,7 +70,7 @@ export class BooksStorageService {
       (bookUpdated) =>
         this._storage.next({
           ...this.data,
-          books: [...this.data.books.filter(({ id }) => id !== book.id), bookUpdated].sort((a, b) => a.id - b.id),
+          books: [...this.data.books.filter(({ id }) => id !== book.id), bookUpdated],
           loading: false
         }),
       (error) => this._storage.next({ ...this.data, loading: false, error })
